@@ -2,14 +2,14 @@
 #include "systemc.h"
 #include "interface.h"
 #include "modul.h"
-#include "fifo.h"
+#include "kolejka.h"
 #include "stdafx.h"
 
 SC_MODULE(procesor2) {
 	sc_in<bool> clock;
 	sc_in<bool> reset;
 	sc_port<read_if> in;
-	fifo *kolejka;
+	kolejka *kolejka;
 	SC_CTOR(procesor2) {
 
 		SC_CTHREAD(main, clock.pos());

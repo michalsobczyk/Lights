@@ -2,7 +2,7 @@
 #include "systemc.h"
 #include "interface.h"
 #include "modul.h"
-#include "fifo.h"
+#include "kolejka.h"
 #include "stdafx.h"
 
 SC_MODULE(procesor1) {
@@ -12,7 +12,7 @@ SC_MODULE(procesor1) {
 	sc_buffer<int> program;
 	sc_out<bool> reset_out;
 	modul *module;
-	fifo *kolejka;
+	kolejka *kolejka;
 
 
 	SC_CTOR(procesor1) {

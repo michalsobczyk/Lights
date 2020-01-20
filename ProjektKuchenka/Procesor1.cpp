@@ -22,7 +22,7 @@ void procesor1::output()
 	int poprzedniaOpcja = 0;
 	int aktualnaOpcja = 0;
 	bool isTrue = true;
-	bool tablicaWlaczonych[6] = { false };
+	bool tablicaWlaczonych[4] = { false };
 	int licznik = 0;
 	while (true)
 	{
@@ -30,9 +30,9 @@ void procesor1::output()
 		if (reset.read() == 1)
 		{
 			poprzedniaOpcja = 0;
-			cout << "Wszystkie programy wylaczone" << endl;
+			cout << "Swiatla wylaczone" << endl;
 			reset_out.write(false);
-			for (int i = 0; i < 6; i++)
+			for (int i = 0; i < 4; i++)
 			{
 				tablicaWlaczonych[i] = false;
 			}
@@ -43,20 +43,20 @@ void procesor1::output()
 			licznik = 0;
 			if (aktualnaOpcja == 0)
 			{
-				cout << "Wszystkie programy wylaczone" << endl;
+				cout << "Swiatla wylaczone" << endl;
 			}
 			if (aktualnaOpcja != 113)
 			{
 
-				cout << "40          50          60          65          70           90          Error" << endl;
+				cout << "Zespol swiatel 1          Zespol swiatel 2          Zespol swiatel 3          Zespol swiatel 4          Error" << endl;
 				if (aktualnaOpcja == 0)
 				{
-					for (int i = 0; i < 6; i++)
+					for (int i = 0; i < 4; i++)
 					{
 						tablicaWlaczonych[i] = false;
 					}
 				}
-				if (aktualnaOpcja > 0 && aktualnaOpcja < 7)
+				if (aktualnaOpcja > 0 && aktualnaOpcja < 5)
 				{
 					if(tablicaWlaczonych[aktualnaOpcja - 1] == false) tablicaWlaczonych[aktualnaOpcja - 1] = true;
 
@@ -65,17 +65,17 @@ void procesor1::output()
 						tablicaWlaczonych[aktualnaOpcja - 1] = false;
 					}
 				}
-				for (int i = 0; i < 6; i++)
+				for (int i = 0; i < 4; i++)
 				{
 					if (tablicaWlaczonych[i])
 					{
-						cout << "On          ";
+						cout << "       On                 ";
 						licznik++;
 					}
 					else
-						cout << "Off         ";
+						cout << "       Off                ";
 				}
-				if (licznik > 1 || aktualnaOpcja > 6)
+				if (licznik > 1 || aktualnaOpcja > 4)
 					cout << "ERROR" << endl;
 				else
 					cout << "     " << endl;

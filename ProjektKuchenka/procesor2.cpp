@@ -3,7 +3,7 @@
 #include "systemc.h"
 #include "interface.h"
 #include "modul.h"
-#include "fifo.h"
+#include "kolejka.h"
 #include "Procesor2.h"
 
 void procesor2::zadanie2()

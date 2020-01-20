@@ -15,7 +15,7 @@ SC_MODULE(modul)
 	}
 	void main();
 
-	class modul
+	class modul1
 	{
 	};
 };
